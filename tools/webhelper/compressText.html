@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>压缩文本</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+	<script type="text/javascript">
+    function compressText(){
+    
+    	var Text=  document.form.sourceText.value;
+ 
+        var i           = 0,
+            len          = 0,
+            targetText     = "",
+            inString    = false,
+            inParentheses    = false,
+            currentChar = null;
+             
+             
+        for (i = 0, len = Text.length; i < len; i += 1) { 
+            currentChar = Text.charAt(i);
+ 
+            switch (currentChar) {
+            case "\t":
+            case "\n":
+            case ' ':
+            	if(inString || inParentheses){
+            		targetText += currentChar;
+            	}
+            	break;
+           	case '"':
+           	case "'":
+           		inString = !inString;targetText += currentChar;
+           		break;
+           	case '<':
+           	case '>':
+           		inParentheses = !inParentheses;
+            default: 
+                targetText += currentChar; 
+                break;                    
+            }
+        }
+        document.form.targetText.value=targetText;
+        return;
+    }
+  </script>
+ </head>
+ <body>
+ <form id="form" name="form">
+        <textarea name="sourceText" id="sourceText" cols="80" rows="30"></textarea>     
+        <input type="button" onclick="compressText();" value="压缩"/>
+        <textarea name="targetText" id="targetText" cols="80" rows="30">  </textarea>
+        </form>
+ </body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>DouBi365</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="admin A Vue.js project  Build Setup1234567891011121314151617181920# install dependenciesnpm install# serve with hot reload at localhost:8080npm run dev# build for production with minificationnpm run b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DouBi365">
+<meta property="og:url" content="http://www.doubi365.com/vue.html">
+<meta property="og:site_name" content="DouBi365">
+<meta property="og:description" content="admin A Vue.js project  Build Setup1234567891011121314151617181920# install dependenciesnpm install# serve with hot reload at localhost:8080npm run dev# build for production with minificationnpm run b">
+<meta property="og:image" content="http://oimam66tq.bkt.clouddn.com/node%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85python.png">
+<meta property="og:image" content="http://oimam66tq.bkt.clouddn.com/%E4%BE%9D%E8%B5%96.png">
+<meta property="og:image" content="http://oimam66tq.bkt.clouddn.com/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png">
+<meta property="og:updated_time" content="2017-10-28T16:47:14.326Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DouBi365">
+<meta name="twitter:description" content="admin A Vue.js project  Build Setup1234567891011121314151617181920# install dependenciesnpm install# serve with hot reload at localhost:8080npm run dev# build for production with minificationnpm run b">
+<meta name="twitter:image" content="http://oimam66tq.bkt.clouddn.com/node%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85python.png">
+    
+
+    
+        <link rel="alternate" href="/" title="DouBi365" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">DouBi365</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+                    <a class="main-nav-link" href="/tools">在线工具</a>
+                
+                    <a class="main-nav-link" href="/paypal">捐赠</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                    <td><a class="main-nav-link" href="/tools">在线工具</a></td>
+                
+                    <td><a class="main-nav-link" href="/paypal">捐赠</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Steven Sun</h2>
+            <h3 id="title">Web &amp; Java 程序员</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>长春, 吉林</span>
+            <a id="follow" target="_blank" href="https://github.com/StevenSun121">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                28
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                26
+                <span>标签</span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h1><blockquote>
+<p>A Vue.js project</p>
+</blockquote>
+<h2 id="Build-Setup"><a href="#Build-Setup" class="headerlink" title="Build Setup"></a>Build Setup</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install dependencies</span></div><div class="line">npm install</div><div class="line"></div><div class="line"><span class="comment"># serve with hot reload at localhost:8080</span></div><div class="line">npm run dev</div><div class="line"></div><div class="line"><span class="comment"># build for production with minification</span></div><div class="line">npm run build</div><div class="line"></div><div class="line"><span class="comment"># build for production and view the bundle analyzer report</span></div><div class="line">npm run build --report</div><div class="line"></div><div class="line"><span class="comment"># run unit tests</span></div><div class="line">npm run unit</div><div class="line"></div><div class="line"><span class="comment"># run e2e tests</span></div><div class="line">npm run e2e</div><div class="line"></div><div class="line"><span class="comment"># run all tests</span></div><div class="line">npm <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>####1、安装<a href="https://www.python.org/downloads/" target="_blank" rel="external">python</a></p>
+<ul>
+<li><p><img src="http://oimam66tq.bkt.clouddn.com/node%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85python.png" alt=""><br>####2、安装<a href="https://nodejs.org/en/" target="_blank" rel="external">node</a><br>####3、设置淘宝镜像(不要用cnpm，会出现一些诡异的问题)<br>  npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a><br>####4、<a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank" rel="external">安装vue脚手架</a><br>  npm install -g vue-cli<br>####5、<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">创建项目</a><br>  vue init <template-name> <project-name><br>  //template-name是模板名称<br>  //project-name是项目名字<br>####6、安装依赖<br>  npm install<br>####7、起项目<br>  npm run dev<br>####8、开发工具-Visual Studio Code<br>  常用插件<br>  Terminal             ——终端<br>  Auto Close Tag       ——自动关闭标签<br>  Auto Rename Tag      ——自动重命名标签<br>  Path autocomplete    ——路径自动完成<br>  Vetur                ——vue插件(代码补全)<br>  EsLint               ——代码检查<br>  File Peek            ——文件查看</project-name></template-name></p>
+<p>  设置<br>  文件=&gt;首选项=&gt;设置<br>  //保存修复配置<br>   “eslint.validate”: [</p>
+<pre><code> &quot;javascript&quot;,
+&quot;javascriptreact&quot;,
+{
+    &quot;language&quot;: &quot;vue&quot;,
+    &quot;autoFix&quot;: true
+},
+{
+    &quot;language&quot;: &quot;html&quot;,
+    &quot;autoFix&quot;: true
+}
+</code></pre><p>  ],<br>  “eslint.autoFixOnSave”: true,<br>  //emmet配置<br>  “emmet.syntaxProfiles”: {</p>
+<pre><code>&quot;vue-html&quot;: &quot;html&quot;,
+&quot;vue&quot;: &quot;html&quot;
+</code></pre><p>  },<br>  “emmet.triggerExpansionOnTab”: true<br>####9、<a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">调试工具-vue-devtools</a>：</p>
+</li>
+</ul>
+<p>##项目说明</p>
+<p>###目录结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">├──build  //构建相关  </div><div class="line">├──config //配置相关    </div><div class="line">├──src  </div><div class="line">│   ├──assets //静态资源(图片)  </div><div class="line">│   ├──components      </div><div class="line">│        ├──common  //公共组件  </div><div class="line">│        ├──pages  //单页面组件</div><div class="line">│   ├──config  //前端配置相关  </div><div class="line">│   ├──router  //路由  </div><div class="line">│   ├──service  //api配置  </div><div class="line">│   ├──store  //vuex  </div><div class="line">│   ├──styles  //全局样式、主题  </div><div class="line">│   ├──utils  //工具方法  </div><div class="line">│   ├──App.vue  //页面入口  </div><div class="line">│   ├──main.js  //入口 加载组件 初始化等  </div><div class="line">│   ├──permission.js  //权限      </div><div class="line">│   ├──config  //前端配置(请求basePath等)  </div><div class="line">│   ├──router  //路由  </div><div class="line">│   ├──service  //api  </div><div class="line">├──static //不需要打包的第三方资源  </div><div class="line">├──test   //测试相关  </div><div class="line">├──.babelrc  // babel-loader 配置  </div><div class="line">├──.eslintignore  //eslint忽略配置  </div><div class="line">├──.eslintrc.js   //eslint配置文件  </div><div class="line">├──.gitignore     //git忽略配置  </div><div class="line">├──.postcssrc.js  //   </div><div class="line">├──index.html     //html模板  </div><div class="line">├──package.json   //  </div><div class="line">├──package-lock.json //  </div><div class="line">├──README.md      //readme</div></pre></td></tr></table></figure></p>
+<h3 id="package-js"><a href="#package-js" class="headerlink" title="package.js"></a><a href="http://jingpin.jikexueyuan.com/article/34254.html" target="_blank" rel="external">package.js</a></h3><p>####1、scripts(脚本命令)<br>    npm run dev        //起项目<br>    npm start          //起项目<br>    npm run build      //构建项目<br>    npm run analyz     //构建项目+包分析</p>
+<p>####2、dependencies和devDependencies<br><img src="http://oimam66tq.bkt.clouddn.com/%E4%BE%9D%E8%B5%96.png" alt=""></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>####1、开发跨域配置config/index.js<br><img src="http://oimam66tq.bkt.clouddn.com/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png" alt="反向代理"></p>
+<p>####2、import路径简化配置webpack.base.conf.js<br>    resolve: {<br>      extensions: [‘.js’, ‘.vue’, ‘.json’],    //省略扩展名<br>      alias: {<br>        ‘vue$’: ‘vue/dist/vue.esm.js’,<br>        ‘@’: resolve(‘src’),<br>        ‘~’: resolve(‘src/components/pages’),   //简化路径<br>      }<br>    }<br>    例:<br>    import Layout from ‘~/layout/Layout’ //src/components/pages/layout/Layout.vue</p>
+<h3 id="第一个Vue组件"><a href="#第一个Vue组件" class="headerlink" title="第一个Vue组件"></a>第一个Vue组件</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>#####1、创建Vue文件</p>
+<blockquote>
+<ul>
+<li>页面放到pages下，每个模块一个文件夹</li>
+<li>公共组件放到common下，多文件组件放同一文件夹</li>
+<li>template需要有唯一的根节点，不要在根节点上用v-for</li>
+<li>style统一用<a href="https://www.sass.hk/" target="_blank" rel="external">scss</a>语法</li>
+</ul>
+</blockquote>
+<p>#####2、在vue-router中配置</p>
+<blockquote>
+<ul>
+<li>统一采用异步组件</li>
+</ul>
+</blockquote>
+<pre><code>const Login = () =&gt; import(/* webpackChunkName: &quot;Login&quot; */&apos;../components/pages/Login&apos;)
+</code></pre><blockquote>
+<ul>
+<li>无需权限就能访问的路由在baseRoutes中配置(配置路由)</li>
+<li>需要权限才能访问的，需要配置到syncComponents中(配置组件，根据服务端权限重新组织路由)<br>#####3、vuex<br>  …mapState([‘count’]) ＜＝＞  this.$store.state.count<br>  …mapGetters([‘count’]) ＜＝＞  this.$store.getters.count<br>  …mapMutations([‘SET_COUNT’])  ＜＝＞  this.$store.commit(‘SET_COUNT’)<br>  …mapActions([‘set_count’]) ＜＝＞  this.$store.dispatch(‘set_count’)</li>
+</ul>
+</blockquote>
+<h3 id="数据接口"><a href="#数据接口" class="headerlink" title="数据接口"></a>数据接口</h3><blockquote>
+<ul>
+<li>在config/index.js中设置正是接口和测试接口的反向代理</li>
+<li>在src/config/index.js中配置接口basePath(用来切换测试接口和正是接口)</li>
+<li>在src/service中配置接口  </li>
+</ul>
+</blockquote>
+<pre><code>export default [
+    {
+        name: &apos;登录&apos;,
+        method: &apos;POST&apos;,
+        desc: &apos;登录接口&apos;,
+        path: &apos;/login&apos;
+        params: {
+            //设置请求参数
+        }
+    },
+    {
+        name: &apos;用户信息&apos;,
+        method: &apos;GET&apos;,
+        desc: &apos;登录接口&apos;,
+        path: &apos;/userInfo/:token&apos;
+        params: {
+            //设置请求参数
+        }
+    }
+]
+</code></pre><blockquote>
+<ul>
+<li>api调用</li>
+</ul>
+</blockquote>
+<pre><code>this.$apis[&apos;login/login&apos;]({//data},{//路径参数},{//config})
+    .then(resp =&gt; {
+        //成功
+    }).catch(error =&gt; {
+        //失败
+    })
+</code></pre><blockquote>
+<ul>
+<li>直接使用axios</li>
+</ul>
+</blockquote>
+<pre><code>this.$ajax.get(&apos;url&apos;,{//config})
+    .then(respones=&gt;{
+        //成功
+    }).catch(error=&gt;{
+        //失败
+    })
+this.$ajax.post(&apos;url&apos;,{//data},{//config})
+    .then(respones=&gt;{
+        //成功
+    }).catch(error=&gt;{
+        //失败
+    })
+</code></pre><p>For detailed explanation on how things work, checkout the <a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="external">guide</a> and <a href="http://vuejs.github.io/vue-loader" target="_blank" rel="external">docs for vue-loader</a>.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.doubi365.com/vue.html" data-id="cjhnbdp630000foo29t41bf05" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+
+    
+</article>
+
+
+    
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/14/win10不为人知的快捷键/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/优化/">优化</a></p>
+                            <p class="item-title"><a href="/2018/03/14/win10不为人知的快捷键/" class="title">win10不为人知的快捷键</a></p>
+                            <p class="item-date"><time datetime="2018-03-13T16:00:00.000Z" itemprop="datePublished">2018-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/13/win10修改磁铁背景和图标/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/美化/">美化</a></p>
+                            <p class="item-title"><a href="/2018/03/13/win10修改磁铁背景和图标/" class="title">win10修改磁铁背景和图标</a></p>
+                            <p class="item-date"><time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/19/jenkins自动部署Blog/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/其他/">其他</a></p>
+                            <p class="item-title"><a href="/2018/01/19/jenkins自动部署Blog/" class="title">jenkins自动部署Blog</a></p>
+                            <p class="item-date"><time datetime="2018-01-18T16:00:00.000Z" itemprop="datePublished">2018-01-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/17/linux下安装nodejs/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/node/">node</a></p>
+                            <p class="item-title"><a href="/2018/01/17/linux下安装nodejs/" class="title">linux下安装nodejs</a></p>
+                            <p class="item-date"><time datetime="2018-01-16T16:00:00.000Z" itemprop="datePublished">2018-01-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/15/Listary破解教程/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/破解/">破解</a></p>
+                            <p class="item-title"><a href="/2018/01/15/Listary破解教程/" class="title">Listary破解教程</a></p>
+                            <p class="item-date"><time datetime="2018-01-14T16:00:00.000Z" itemprop="datePublished">2018-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/优化/">优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/破解/">破解</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/美化/">美化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高并发/">高并发</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AHK/" style="font-size: 10px;">AHK</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/VMWARE/" style="font-size: 10px;">VMWARE</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/windows/" style="font-size: 13.33px;">windows</a> <a href="/tags/多重样式/" style="font-size: 10px;">多重样式</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据缓存/" style="font-size: 10px;">数据缓存</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/特性/" style="font-size: 10px;">特性</a> <a href="/tags/破解/" style="font-size: 10px;">破解</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/美化/" style="font-size: 10px;">美化</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/跳转/" style="font-size: 10px;">跳转</a> <a href="/tags/错误/" style="font-size: 10px;">错误</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Steven Sun<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

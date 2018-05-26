@@ -1,0 +1,198 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Minecraft;
+    src: url(Minecraft.eot);
+    src: local('☺'),url(Minecraft.woff) format('woff'),url(Minecraft.ttf) format('truetype'),url(Minecraft.svg) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+body{
+    background: black;
+}
+
+ul, li {
+    list-style: none;
+}
+
+/* 950 940 */
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*width: 950px;
+    height: 484px;*/
+    width: 1368px;
+    height: 702px;
+    border: 5px solid #365510;
+    margin-top: -356px;
+    margin-left: -685px;
+    overflow: hidden;
+}
+
+.containerBg{
+    background: #97c13d;
+}
+.containerBgBlink{
+    background: #91FF47;
+}
+
+#container ul {
+    position: absolute;
+    top: 0;
+    /*margin-left: -2px;
+    margin-right: -2px;*/
+}
+
+#container li {
+    float: left;
+    width: 17px;
+    height: 17px;
+    border-right: 1px solid #8ab333;
+    border-bottom: 1px solid #8ab333;
+}
+
+#header {
+    /*position: relative;*/
+    width: 100%;
+    height: 67px;
+    overflow: hidden;
+}
+
+.greedy {
+    position: absolute;
+    font-family: 'Minecraft';
+    color: #365510;
+    letter-spacing: 5px;
+    font-size: 50px;
+    line-height: 36px;
+    left: 50%;
+    top: 24px;
+    z-index: 2;
+    width: 500px;
+    height: 28px;
+    margin-left: -225px;
+    /*background: url(../img/greedy.png) no-repeat;*/
+}
+
+#main {
+    /*position: relative;*/
+}
+
+.play {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    /*margin-left: -150px;*/
+    margin-left: -186px;
+    /*width: 300px;*/
+    width: 372px;
+    height: 0;
+    z-index: 2;
+    background: url(../img/play.png) no-repeat;
+}
+
+.start{
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    width: 200px;
+    height: 0;
+    margin-left: -100px;
+    z-index: 3;
+    background: url(../img/start.png) no-repeat;
+}
+
+.gameOver {
+    position: absolute;
+    width: 500px;
+    height: 150px;
+    font-family: 'Minecraft';
+    color: #365510;
+    letter-spacing: 5px;
+    font-size: 40px;
+    line-height: 36px;
+    left: 570px;
+    top: 180px;
+    z-index: 2;
+}
+
+.scoreText {
+    position: absolute;
+    width: 700px;
+    height: 150px;
+    font-family: 'Minecraft';
+    color: #365510;
+    letter-spacing: 5px;
+    font-size: 240px;
+    line-height: 36px;
+    left: 408px;
+    top: 400px;
+    z-index: 2;
+}
+
+.slideDown{
+    top: 180px;
+    /*transition: top 2s;*/
+    /*-webkit-transition: top 2s;*/
+}
+
+.on-score {
+    position: absolute;
+    font-family: 'Minecraft';
+    color: #365510;
+    letter-spacing: 5px;
+    left: 30px;
+    top: 20px;
+    z-index: 2;
+    font-size: 30px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.header-bottom {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 5px;
+    background: url(../img/header-bottom.png) repeat-x;
+}
+
+/*蛇*/
+
+#J_playground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 71px;
+    /*background: rgba(255,0,0,.5);*/
+}
+
+#J_playground ul{
+    /*margin: 0;*/
+}
+
+#J_playground ul li{
+    /*border-right: 1px solid red;*/
+    /*border-bottom: 1px solid red;*/
+}
+
+
+.food {
+    background: url(../img/food.png);
+    /*background-color: #99FF00;*/
+}
+.snake{
+    background: #2e5008;
+}
+
+.dn{
+    display: none;
+}
+.cur{ cursor: pointer}

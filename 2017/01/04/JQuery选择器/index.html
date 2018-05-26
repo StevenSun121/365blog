@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>JQuery选择器 | DouBi365</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="jQuery 的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法 $(&amp;quot;#myELement&amp;quot;)    选择id值等于myElement的元素，当有多个id相同元素时返回第一个$(&amp;quot;div&amp;quot;)           选择所有的div标签元素，返回div元素数组$(&amp;quot;.myClass&amp;quot;)      选择使用myClass类的css的">
+<meta name="keywords" content="JQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery选择器">
+<meta property="og:url" content="http://www.doubi365.com/2017/01/04/JQuery选择器/index.html">
+<meta property="og:site_name" content="DouBi365">
+<meta property="og:description" content="jQuery 的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法 $(&amp;quot;#myELement&amp;quot;)    选择id值等于myElement的元素，当有多个id相同元素时返回第一个$(&amp;quot;div&amp;quot;)           选择所有的div标签元素，返回div元素数组$(&amp;quot;.myClass&amp;quot;)      选择使用myClass类的css的">
+<meta property="og:updated_time" content="2017-04-14T10:09:41.745Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JQuery选择器">
+<meta name="twitter:description" content="jQuery 的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法 $(&amp;quot;#myELement&amp;quot;)    选择id值等于myElement的元素，当有多个id相同元素时返回第一个$(&amp;quot;div&amp;quot;)           选择所有的div标签元素，返回div元素数组$(&amp;quot;.myClass&amp;quot;)      选择使用myClass类的css的">
+    
+
+    
+        <link rel="alternate" href="/" title="DouBi365" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">DouBi365</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+                    <a class="main-nav-link" href="/tools">在线工具</a>
+                
+                    <a class="main-nav-link" href="/paypal">捐赠</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                    <td><a class="main-nav-link" href="/tools">在线工具</a></td>
+                
+                    <td><a class="main-nav-link" href="/paypal">捐赠</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Steven Sun</h2>
+            <h3 id="title">Web &amp; Java 程序员</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>长春, 吉林</span>
+            <a id="follow" target="_blank" href="https://github.com/StevenSun121">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                28
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                26
+                <span>标签</span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-JQuery选择器" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            JQuery选择器
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/04/JQuery选择器/">
+            <time datetime="2017-01-03T16:00:00.000Z" itemprop="datePublished">2017-01-04</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JQuery/">JQuery</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>jQuery 的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法</p>
+<p><code>$(&quot;#myELement&quot;)</code>    选择id值等于myElement的元素，当有多个id相同元素时返回第一个<br><code>$(&quot;div&quot;)</code>           选择所有的div标签元素，返回div元素数组<br><code>$(&quot;.myClass&quot;)</code>      选择使用myClass类的css的所有元素<br><code>$(&quot;*&quot;)</code>             选择文档中的所有的元素，可以运用多种的选择方式进行联合选择：例如<code>$(&quot;#myELement,div,.myclass&quot;)</code><br><a id="more"></a></p>
+<h2 id="层叠选择器："><a href="#层叠选择器：" class="headerlink" title="层叠选择器："></a>层叠选择器：</h2><p><code>$(&quot;form input&quot;)</code>         选择所有的form元素中的input元素，指所有子孙元素<br><code>$(&quot;#main &gt; *&quot;)</code>          选择id值为main的所有的子元素，&gt;表示只在子元素中查找<br><code>$(&quot;label + input&quot;)</code>     选择所有的label元素的下一个input元素节点，经测试选择器返回的是label标签后面直接跟一个input标签的所有input标签元素<br><code>$(&quot;#prev ~ div&quot;)</code>       同胞选择器，该选择器返回的为id为prev的标签元素的所有的属于同一个父元素的div标签</p>
+<h2 id="基本过滤选择器："><a href="#基本过滤选择器：" class="headerlink" title="基本过滤选择器："></a>基本过滤选择器：</h2><p><code>$(&quot;tr:first&quot;)</code>               选择所有tr元素的第一个<br><code>$(&quot;tr:last&quot;)</code>                选择所有tr元素的最后一个<br><code>$(&quot;input:not(:checked) + span&quot;)</code>   过滤掉：checked的选择器的所有的input元素<br><code>$(&quot;tr:even&quot;)</code>               选择所有的tr元素的第0，2，4… …个元素（注意：因为所选择的多个元素时为数组，所以序号是从0开始）<br><code>$(&quot;tr:odd&quot;)</code>                选择所有的tr元素的第1，3，5… …个元素<br><code>$(&quot;td:eq(2)&quot;)</code>             选择所有的td元素中序号为2的那个td元素<br><code>$(&quot;td:gt(4)&quot;)</code>             选择td元素中序号大于4的所有td元素<br><code>$(&quot;td:ll(4)&quot;)</code>              选择td元素中序号小于4的所有的td元素<br><code>$(&quot;:header&quot;)</code>              选择所有标题元素（h1 - h6）<br><code>$(&quot;div:animated&quot;)</code>         返回封装了所有正在执行动画效果的元素的jQuery对象</p>
+<h2 id="内容过滤选择器："><a href="#内容过滤选择器：" class="headerlink" title="内容过滤选择器："></a>内容过滤选择器：</h2><p><code>$(&quot;div:contains(&#39;John&#39;)&quot;)</code> 选择所有div中含有John文本的元素<br><code>$(&quot;td:empty&quot;)</code>           选择所有的为空（也不包括文本节点）的td元素的数组<br><code>$(&quot;div:has(p)&quot;)</code>        选择所有含有p标签的div元素<br><code>$(&quot;td:parent&quot;)</code>          选择所有的以td为父节点的元素数组</p>
+<h2 id="可视化过滤选择器："><a href="#可视化过滤选择器：" class="headerlink" title="可视化过滤选择器："></a>可视化过滤选择器：</h2><p><code>$(&quot;div:hidden&quot;)</code>        选择所有的被hidden的div元素<br><code>$(&quot;div:visible&quot;)</code>        选择所有的可视化的div元素</p>
+<h2 id="属性过滤选择器："><a href="#属性过滤选择器：" class="headerlink" title="属性过滤选择器："></a>属性过滤选择器：</h2><p><code>$(&quot;div[id]&quot;)</code>              选择所有含有id属性的div元素<br><code>$(&quot;input[name=&#39;newsletter&#39;]&quot;)</code>    选择所有的name属性等于’newsletter’的input元素<br><code>$(&quot;input[name!=&#39;newsletter&#39;]&quot;)</code> 选择所有的name属性不等于’newsletter’的input元素<br><code>$(&quot;input[name^=&#39;news&#39;]&quot;)</code>         选择所有的name属性以’news’开头的input元素<br><code>$(&quot;input[name$=&#39;news&#39;]&quot;)</code>         选择所有的name属性以’news’结尾的input元素<br><code>$(&quot;input[name*=&#39;man&#39;]&quot;)</code>          选择所有的name属性包含’news’的input元素<br><code>$(&quot;input[id][name$=&#39;man&#39;]&quot;)</code>    可以使用多个属性进行联合选择，该选择器是得到所有的含有id属性并且那么属性以man结尾的元素</p>
+<h2 id="子元素过滤选择器："><a href="#子元素过滤选择器：" class="headerlink" title="子元素过滤选择器："></a>子元素过滤选择器：</h2><p><code>$(&quot;ul li:nth-child(2)&quot;)</code>         选取ul下的所有属于其父元素的第二个子元素的li<br><code>$(&quot;ul li:nth-child(odd)&quot;)</code>       选取ul下的所有属于其父元素的索引为奇数的子元素的li（索引从0开始）<br><code>$(&quot;ul li:nth-child(3n + 2)&quot;)</code>    选取每个第三段，从第二个子元素开始，例子应返回ul下的所有属于其父元素的子元素的第二个、第五个、第八个。。。。li<br><code>$(&quot;div span:first-child&quot;)</code>          返回所有的div元素的第一个子节点的数组<br><code>$(&quot;div span:last-child&quot;)</code>           返回所有的div元素的最后一个节点的数组<br><code>$(&quot;div button:only-child&quot;)</code>       返回所有的div中只有唯一一个子节点的所有子节点的数组</p>
+<h2 id="表单元素选择器："><a href="#表单元素选择器：" class="headerlink" title="表单元素选择器："></a>表单元素选择器：</h2><p><code>$(&quot;:input&quot;)</code>                  选择所有的表单输入元素，包括input, textarea, select 和 button<br><code>$(&quot;:text&quot;)</code>                     选择所有的text input元素<br><code>$(&quot;:password&quot;)</code>           选择所有的password input元素<br><code>$(&quot;:radio&quot;)</code>                   选择所有的radio input元素<br><code>$(&quot;:checkbox&quot;)</code>            选择所有的checkbox input元素<br><code>$(&quot;:submit&quot;)</code>               选择所有的submit input元素<br><code>$(&quot;:image&quot;)</code>                 选择所有的image input元素<br><code>$(&quot;:reset&quot;)</code>                   选择所有的reset input元素<br><code>$(&quot;:button&quot;)</code>                选择所有的button input元素<br><code>$(&quot;:file&quot;)</code>                     选择所有的file input元素<br><code>$(&quot;:hidden&quot;)</code>               选择所有类型为hidden的input元素或表单的隐藏域</p>
+<h2 id="表单元素过滤选择器："><a href="#表单元素过滤选择器：" class="headerlink" title="表单元素过滤选择器："></a>表单元素过滤选择器：</h2><p><code>$(&quot;:enabled&quot;)</code>             选择所有的可操作的表单元素<br><code>$(&quot;:disabled&quot;)</code>            选择所有的不可操作的表单元素<br><code>$(&quot;:checked&quot;)</code>            选择所有的被checked的表单元素<br><code>$(&quot;select option:selected&quot;)</code> 选择所有的select 的子元素中被selected的元素</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.doubi365.com/2017/01/04/JQuery选择器/" data-id="cjhnbdp91000afoo23nkhl975" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/08/22/Memcache,Redis,MongoDB（数据缓存系统）方案对比与分析/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Memcache,Redis,MongoDB（数据缓存系统）方案对比与分析
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/01/07/JavaScript数组操作/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">JavaScript数组操作</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/14/win10不为人知的快捷键/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/优化/">优化</a></p>
+                            <p class="item-title"><a href="/2018/03/14/win10不为人知的快捷键/" class="title">win10不为人知的快捷键</a></p>
+                            <p class="item-date"><time datetime="2018-03-13T16:00:00.000Z" itemprop="datePublished">2018-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/13/win10修改磁铁背景和图标/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/美化/">美化</a></p>
+                            <p class="item-title"><a href="/2018/03/13/win10修改磁铁背景和图标/" class="title">win10修改磁铁背景和图标</a></p>
+                            <p class="item-date"><time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/19/jenkins自动部署Blog/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/其他/">其他</a></p>
+                            <p class="item-title"><a href="/2018/01/19/jenkins自动部署Blog/" class="title">jenkins自动部署Blog</a></p>
+                            <p class="item-date"><time datetime="2018-01-18T16:00:00.000Z" itemprop="datePublished">2018-01-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/17/linux下安装nodejs/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/node/">node</a></p>
+                            <p class="item-title"><a href="/2018/01/17/linux下安装nodejs/" class="title">linux下安装nodejs</a></p>
+                            <p class="item-date"><time datetime="2018-01-16T16:00:00.000Z" itemprop="datePublished">2018-01-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/15/Listary破解教程/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/破解/">破解</a></p>
+                            <p class="item-title"><a href="/2018/01/15/Listary破解教程/" class="title">Listary破解教程</a></p>
+                            <p class="item-date"><time datetime="2018-01-14T16:00:00.000Z" itemprop="datePublished">2018-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/优化/">优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/破解/">破解</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/美化/">美化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高并发/">高并发</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AHK/" style="font-size: 10px;">AHK</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/VMWARE/" style="font-size: 10px;">VMWARE</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/windows/" style="font-size: 13.33px;">windows</a> <a href="/tags/多重样式/" style="font-size: 10px;">多重样式</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据缓存/" style="font-size: 10px;">数据缓存</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/特性/" style="font-size: 10px;">特性</a> <a href="/tags/破解/" style="font-size: 10px;">破解</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/美化/" style="font-size: 10px;">美化</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/跳转/" style="font-size: 10px;">跳转</a> <a href="/tags/错误/" style="font-size: 10px;">错误</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Steven Sun<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

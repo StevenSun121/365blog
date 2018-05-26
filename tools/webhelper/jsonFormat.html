@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSON美化</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <link href="../css/index.css" rel="stylesheet">
+	<script type="text/javascript">
+    function repeat(s, count) {
+        return new Array(count + 1).join(s);
+    }
+ 
+    function formatJson() {
+ 
+        var json=  document.getElementById("sourcejson").value;
+ 
+        var i           = 0,
+            len          = 0,
+            tab         = "    ",
+            targetJson     = "",
+            indentLevel = 0,
+            inString    = false,
+            currentChar = null;
+             
+             
+        for (i = 0, len = json.length; i < len; i += 1) { 
+            currentChar = json.charAt(i);
+ 
+            switch (currentChar) {
+            case '{': 
+            case '[': 
+                if (!inString) { 
+                    targetJson += currentChar + "\n" + repeat(tab, indentLevel + 1);
+                    indentLevel += 1; 
+                } else { 
+                    targetJson += currentChar; 
+                }
+                break; 
+            case '}': 
+            case ']': 
+                if (!inString) { 
+                    indentLevel -= 1; 
+                    targetJson += "\n" + repeat(tab, indentLevel) + currentChar; 
+                } else { 
+                    targetJson += currentChar; 
+                } 
+                break; 
+            case ',': 
+                if (!inString) { 
+                    targetJson += ",\n" + repeat(tab, indentLevel); 
+                } else { 
+                    targetJson += currentChar; 
+                } 
+                break; 
+            case ':': 
+                if (!inString) { 
+                    targetJson += ": "; 
+                } else { 
+                    targetJson += currentChar; 
+                } 
+                break; 
+            case ' ':
+            case "\n":
+            case "\t":
+                if (inString) {
+                    targetJson += currentChar;
+                }
+                break;
+            case '"': 
+                if (i > 0 && json.charAt(i - 1) !== '\\') {
+                    inString = !inString; 
+                }
+                targetJson += currentChar; 
+                break;
+            default: 
+                targetJson += currentChar; 
+                break;                    
+            } 
+        }
+        document.getElementById("targetjson").value=targetJson;
+        return;
+    }
+    function compressJson(){
+    
+    	var json=  document.getElementById("sourcejson").value;
+ 
+        var i           = 0,
+            len          = 0,
+            targetJson     = "",
+            inString    = false,
+            currentChar = null;
+             
+             
+        for (i = 0, len = json.length; i < len; i += 1) { 
+            currentChar = json.charAt(i);
+ 
+            switch (currentChar) {
+            case "\t":
+            case "\n":
+            case ' ':
+            	if(inString){
+            		targetJson += currentChar;
+            	}
+            	break;
+           	case '"':
+           		inString = !inString;
+            default: 
+                targetJson += currentChar; 
+                break;                    
+            }
+        }
+        document.getElementById("targetjson").value=targetJson;
+        return;
+    }
+  </script>
+ </head>
+ <body>
+    <div class="main">
+        <textarea name="sourcejson" id="sourcejson"></textarea>
+        <button onclick="formatJson();">美化</button>
+        <button onclick="compressJson();">压缩</button>
+        <textarea name="targetjson" id="targetjson"></textarea>
+    </div>
+ </body>
+</html>

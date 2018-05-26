@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>qrCode.html</title>
+
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <link href="../css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.qrcode.min.js"></script>
+
+</head>
+
+<body class="main">
+<div id="code" style="width: 300px;height: 300px;margin: 10px auto;"></div>
+<input type="text" id="text" style="margin-left: 280px;"/>
+<button onclick="getCode()">生成</button>
+<script type="text/javascript">
+    var getCode = function(){
+        $("#code").empty();
+        $("#code").qrcode({
+            render: "canvas", //table方式
+            width: 288, //宽度
+            height:288, //高度
+            typeNumber: 4,
+            correctLevel:0,//校正水准
+            text: utf16to8($("#text").val())
+        });
+    }
+    function utf16to8(str) {
+        var out, i, len, c;
+        out = "";
+        len = str.length;
+        for (i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if ((c >= 0x0001) && (c <= 0x007F)) {
+                out += str.charAt(i);
+            } else if (c > 0x07FF) {
+                out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            } else {
+                out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            }
+        }
+        return out;
+    }
+</script>
+</body>
+</html>

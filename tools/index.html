@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>在线工具</title>
+
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+   
+	<link rel="bookmark"  type="image/x-icon"  href="../common/img/favicon.ico"/>
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link href="css/indexCss.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+	<script src="js/jquery.min.js"></script>
+   
+	<script>
+		if (/Android|webOS|iPhone|iPod|BlackBerry|SymbianOS/i.test(navigator.userAgent)) {
+//          $("body").hide();
+            $("body").html("手机还不支持访问哟！");
+		}
+	</script>
+</head>
+  
+<body style="background-image: url(&quot;img/background.jpg&quot;);">
+	<div class="content" style="position: relative; top: 90.75px; margin: 0px auto; float: none; display: inherit;">
+		<nav class="navbar" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="/"><img class="logo-pic" src="img/logo.png" alt="logo"></a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#" id="browserIndex">添加DouBi365为主页</a></li>
+<!-- 						<li><a href="#" id="moreSites">更多站点</a></li> -->
+						<li><a href="../paypal" id="paypal">捐助</a></li>
+						<li><a href="#" id="about">关于</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container blocks" style="opacity: 1;">
+			<div class="col-sm-4 col-lg-4 block"><!--block用来约束分类对应的区块位置，building用来展示实际带边框的分类内容，包括分类标题和分类下的网站-->
+            	<div class="col-sm-12 col-lg-12 building">
+            		<div class="row block-header">
+                		<div class="col-sm-12 col-lg-12 block-desc">
+                  			<div class="col-sm-4 col-lg-4 block-name">
+                    			<label class="block-name">
+									常用·工作
+                    			</label>
+                  			</div>
+                  			<div class="col-sm-4 col-lg-4 placeholder"></div>
+                  			<div class="col-sm-4 col-lg-4 placeholder"></div>
+						</div>
+					</div>
+            		<div class="col-sm-4 col-lg-4 website">
+            			<a href="http://www.baidu.com/" class="website" target="_blank">
+                			<span>百度</span>
+               			</a>
+            		</div>
+       			</div>
+   			</div>
+      		<!--上面为主体导航内容-->
+		</div>
+	</div>
+
+    <!--关于弹层-->
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="sentenceModalLabel" aria-hidden="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header about-modal-header" style="border: 0px;">
+            <button type="button" class="close" data-dismiss="modal" data-toggle="tooltip" data-placement="left" style="opacity: 1;"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="thanks">
+              <p id="thankyou">Thank you</p>
+              <div class="pair">
+                <span class="headline">致屏幕前的你</span>
+                <span class="sentence">谢谢你来到逆风奔跑的逗比之家</span>
+                <span class="headline">致早期用户</span>
+                <span class="sentence">谢谢任炜同学提供的5元钱买域名</span>
+                <span class="headline">联系作者</span>
+                <span class="sentence">如果有任何建议，欢迎联系stevensun121@foxmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--设置为浏览器首页弹层-->
+    <div class="modal fade" id="browserIndexModal" tabindex="-1" role="dialog" aria-labelledby="sentenceModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" style="opacity: 1;"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title" id="sentenceModalLabel">添加DouBi365为主页</h3>
+          </div>
+          <div class="modal-body">
+            <div class="modal-section browser_index_tips multi_browser_background" id="extension_tips" style="display: inherit;">
+              <div class="single_browser_unit" id="chrome_extension_tips" style="display:none;">
+                <p><span>如果您正在使用Chrome浏览器</span></p>
+                <dl class="dl-horizontal">
+                  <dt>设置主页</dt>
+                  <dd>点击<span class="keywords">设置</span> ，在<span class="keywords">启动时</span>一栏，设置<span class="keywords">启动页</span>为<span class="keywords">新标签页</span></dd>   
+                </dl>
+              </div>
+              <div class="single_browser_unit" id="safari_extension_tips" style="display:none;">
+                <p><span>如果您正在使用Safari浏览器，请参考如下步骤设置</span></p>
+                <dl class="dl-horizontal">
+                  <dt>进入设置面板</dt>
+                  <dd>任务栏点击<span class="keywords">Safari</span>，然后点击<span class="keywords">偏好设置</span></dd>
+                  <dt>设置主页</dt>
+                  <dd>在<span class="keywords">通用</span>选项卡下，设置<span class="keywords">主页</span>为<kbd>www.doubi365.com</kbd></dd>
+                  <dt>设置新标签页</dt>
+                  <dd>设置<span class="keywords">新窗口打开方式</span>和<span class="keywords">新标签页打开方式</span>为<span class="keywords">主页</span></dd>
+                </dl>
+              </div>
+			  <div class="single_browser_unit" id="firefox_extension_tips" style="display:none;">
+                <p><span>如果您正在使用Firefox浏览器，请参考如下步骤设置</span></p>
+                <dl class="dl-horizontal">
+                  <dt>进入设置面板</dt>
+                  <dd>点击<span class="keywords">首选项</span></dd>
+                  <dt>设置主页</dt>
+                  <dd>在<span class="keywords">常规</span>选项卡下，设置<span class="keywords">主页</span>为<kbd>www.doubi365.com</kbd></dd>
+                </dl>
+              </div>
+              <div class="single_browser_unit" id="ie_extension_tips" style="display:none;">
+                <p><span>如果您正在使用IE浏览器，请参考如下步骤设置</span></p>
+                <dl class="dl-horizontal">
+                  <dt>设置主页</dt>
+                  <dd>点击<span class="keywords">Internet选项</span>，在<span class="keywords">常规</span>选项卡下，设置<span class="keywords">主页</span>为<kbd>www.doubi365.com</kbd></dd>
+                  <dt>设置新标签页</dt>
+                  <dd>在<span class="keywords">选项卡</span>一栏，点击<span class="keywords">设置</span>，在<span class="keywords">打开选项卡后，打开</span>一栏，选择<span class="keywords">您的第一个主页</span></dd>
+                </dl>
+              </div>
+              <div class="single_browser_unit" id="sougou_extension_tips" style="display:none;">
+                <p><span>如果您正在使用搜狗浏览器，请参考如下步骤设置</span></p>
+                <dl class="dl-horizontal">
+                  <dt>进入设置面板</dt>
+                  <dd>点击<span class="keywords">工具</span>，然后点击<span class="keywords">选项</span></dd>
+                  <dt>设置主页</dt>
+                  <dd>在<span class="keywords">基本设置</span>页卡下，自定义<span class="keywords">主页</span>为<kbd>www.doubi365.com</kbd></dd>
+                  <dt>设置新标签页</dt>
+                  <dd>在<span class="keywords">标签设置</span>页卡下，自定义<span class="keywords">新建标签页时打开</span>为<kbd>www.doubi365.com</kbd></dd>
+                </dl>
+              </div>
+              <div class="single_browser_unit" id="liebao_extension_tips" style="display:none;">
+                <p><span>如果您正在使用猎豹浏览器，请参考如下步骤设置</span></p>
+                <dl class="dl-horizontal">
+                  <dt>进入设置面板</dt>
+                  <dd>点击<span class="keywords">猎豹图标</span>，然后点击<span class="keywords">选项/设置</span></dd>
+                  <dt>设置主页</dt>
+                  <dd>在<span class="keywords">基本设置</span>页卡下， 设置<span class="keywords">主页设置</span>为<span class="keywords">添加新网页</span>，输入<kbd>www.doubi365.com</kbd></dd>
+                  <dt>设置新标签页</dt>
+                  <dd>在<span class="keywords">标签设置</span>页卡下，设置<span class="keywords">新标签页打开</span>为<span class="keywords">主页</span></dd>
+                </dl>
+              </div>
+              <div class="single_browser_unit" id="360ee_extension_tips" style="display:none;">
+                <p><span>如果您正在使用360极速浏览器，请参考如下步骤设置</span></p>
+                <dl class="dl-horizontal">
+                  <dt>进入选项面板</dt>
+                  <dd>点击地址栏一行最右侧的<span class="keywords">列表图标</span>，然后点击<span class="keywords">选项</span></dd>
+                  <dt>设置主页</dt>
+                  <dd>在<span class="keywords">基本设置</span>页卡下， 设置<span class="keywords">启动时</span>为<span class="keywords">添加新网页</span>，输入<kbd>www.doubi365.com</kbd></dd>
+                  <dt>设置新标签页</dt>
+                  <dd>很遗憾，360极速浏览器暂时无法自定义新标签页</dd>
+                </dl>
+              </div>
+              <div class="split_line"></div>
+              <div class="single_browser_unit" id="360safe_tips">
+                <p><span>如果您正在使用360安全浏览器</span></p>
+                <dl class="dl-horizontal">
+                  <dt>进入设置面板</dt>
+                  <dd>点击<span class="keywords">工具</span>，然后点击<span class="keywords">选项</span></dd>
+                  <dt>设置主页</dt>
+                  <dd>在<span class="keywords">启动时打开</span>一栏，修改<span class="keywords">主页</span>为<kbd>www.doubi365.com</kbd></dd>
+                  <dt>设置新标签页</dt>
+                  <dd>很遗憾，360系列浏览器暂时无法自定义新标签页</dd>
+                </dl>
+              </div>
+              <div class="split_line"></div>
+              <div class="single_browser_unit" id="other_browser_tips">
+                <p><span>如果您正在使用其他浏览器(世界之窗、hao123等)</span></p>
+                <dl class="dl-horizontal">
+                  <dt>进入设置面板</dt>
+                  <dd>点击<span class="keywords">偏好设置</span>或<span class="keywords">设置</span>的浏览器选项</dd>
+                  <dt>设置主页</dt>
+                  <dd>设置<span class="keywords">主页</span>为<kbd>www.doubi365.com</kbd></dd>
+                  <dt>设置新标签页</dt>
+                  <dd>将<span class="keywords">新标签页</span>或<span class="keywords">新选项卡</span>设置为<span class="keywords">主页</span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop fade in" id="backdrop" style="display:none;"></div>
+    <canvas id="snow">不支持canvas</canvas>
+  	<script type="text/javascript" src="js/hm.js"></script>
+</body>
+</html>

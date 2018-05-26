@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="css/snake.css">
+</head>
+<body>
+
+<div id="container" class="containerBg">
+    <div id="header">
+        <div class="greedy">GREEDY SNAKE</div>
+        <div class="on-score">0000</div>
+    </div>
+    <div class="header-bottom"></div>
+    <div id="main">
+        <div class="play" style="height: 51px;"></div>
+        <div class="start"></div>
+    </div>
+    <div class="food dn"><img src="img/food.png" alt="食物"></div>
+    <div class="gameOver dn"></div>
+    <div class="scoreText dn"></div>
+    <div id="J_playground" class="com-playground block">
+        <!-- 游戏界面会生成到含id=J_playground的元素里 -->
+    </div>
+</div>
+
+
+<script>
+    var container = document.getElementById('container');
+    var headerObj = document.getElementById('header');
+    var mainObj = document.getElementById('main');
+    //初始化背景
+    var Lis = new Array(2965);
+    var Ul = document.createElement('ul');
+    var LisStr = Lis.join('<li></li>');
+    Ul.innerHTML = LisStr;
+    container.appendChild(Ul);
+
+    var playObj = getClassObj('play');
+    var startObj = getClassObj('start');
+    var foodObj = getClassObj('food');
+    var shareObj = getClassObj('share');
+    var scoreTextObj = getClassObj('scoreText');
+    var gameOverObj = getClassObj('gameOver');
+    var scoreObj = getClassObj('on-score');
+
+    var playHeight = 1,startHeight = 1;
+
+    //开始按钮初始化
+    var playdt = setInterval(function () {
+        playObj.style.height = playHeight + 'px';
+        playHeight += 10;
+        if (playHeight > 60) { // 162
+            startObj.style.height = startHeight + 'px';
+            startHeight += 10;
+            if (startHeight > 60) { // 162
+                clearInterval(playdt);
+            }
+        }
+    }, 150);
+
+    var tcs = function () {
+        var _options = {
+            nX: 35, //排数
+            nY: 76, //列数
+            nLiWidth: 18, //单个像素点宽度
+            nDefaultSpeed: 266, //初始化速度
+            classSnake: 'snake',
+            classFood: 'food',
+            oPlayGround: document.getElementById('J_playground')
+        };
+        //像素点集合数组
+        var aLi;
+        //贪吃蛇
+        var snake;
+        //地图可用空间
+        var mapLi;
+        //移动方向、预载移动方向
+        var direction,preDirection;
+        //移动速度
+        var speed;
+        //是否在移动、是否暂停、是否已经绑定过事件
+        var bHasBegin,bPause,bHasInit;
+        //计时器
+        var timer;
+        /**
+         * 生成地图
+         * @function _createMap
+         * @return (void)
+         * @private
+         */
+        var _createMap = function () {
+
+            //地图对象map
+            var map = document.createElement("ul");
+
+            for (var i = 0; i < _options.nX; i++) {
+                aLi[i] = new Array();
+                for (var j = 0; j < _options.nY; j++) {
+                    var li = document.createElement("li");
+                    aLi[i][j] = li;
+                    map.appendChild(li);
+                    mapLi.push([i,j]);
+                }
+            }
+            map.style.width = _options.nLiWidth * _options.nY + 'px';
+            map.style.height = _options.nLiWidth * _options.nX + 'px';
+            _options.oPlayGround.appendChild(map);
+        }
+        /**
+         * 生成贪吃蛇
+         * @function _createSnake
+         * @return (void)
+         * @private
+         */
+        var _createSnake = function () {
+            var li = Math.floor(Math.random() * mapLi.length);
+            //snake = [[16,38]];
+            var x = mapLi[li][0];
+            var y = mapLi[li][1];
+            snake = [[x,y]];
+
+            aLi[x][y].className = _options.classSnake;
+            mapLi.splice(li,1);
+        }
+
+        /**
+         * 生成食物
+         * @function _createFood
+         * @return (void)
+         * @private
+         */
+
+        var _createFood = function () {
+            if(mapLi.length>0){
+                var li = Math.floor(Math.random() * mapLi.length);
+                var x = mapLi[li][0];
+                var y = mapLi[li][1];
+
+                if (aLi[x][y].className != _options.classSnake && aLi[x][y].className != _options.classFood) {
+                    aLi[x][y].className = _options.classFood;
+                } else {//判断空间
+//                    _createFood();
+                    console.log("创建食物方法异常！");
+                }
+            }
+        }
+        /**
+         * 蛇移动
+         * @function _createFood
+         * @return (void)
+         * @private
+         */
+        var _moveSnake = function () {
+
+            bHasBegin = true;
+            direction = preDirection;
+            var nextX = snake[0][0] + direction[0];
+            var nextY = snake[0][1] + direction[1];
+
+            if (nextX > _options.nX - 1 || nextY > _options.nY - 1 || nextX < 0 || nextY < 0 || aLi[nextX][nextY].className == _options.classSnake) {
+                _gameOver();
+                return;
+            }
+
+            var index = snake[snake.length - 1][0] * _options.nY + snake[snake.length - 1][1];
+            for(; index>-1; index--){
+                if(mapLi[index][0] == snake[snake.length - 1][0] && mapLi[index][1] == snake[snake.length - 1][1]){
+                    mapLi.splice(index, 1);
+                    break;
+                }
+            }
+            snake.unshift([nextX, nextY]);
+            if (aLi[nextX][nextY].className == _options.classFood) {
+                if (_syncStatus()) {
+                    return;
+                }
+                _createFood();
+            } else {
+                aLi[snake[snake.length-1][0]][snake[snake.length-1][1]].className = '';
+                index = (snake[snake.length-1][0] - 1) * _options.nY + snake[snake.length-1][1];
+                for(; index>-1; index--){
+                    if((mapLi[index][0] == snake[snake.length-1][0] && mapLi[index][1] < snake[snake.length-1][1]) || mapLi[index][0] < snake[snake.length-1][0]){
+                        mapLi.splice(index, 0, snake[snake.length-1]);
+                        break;
+                    }
+                }
+                snake.pop();
+
+            }
+
+            aLi[nextX][nextY].className = _options.classSnake;
+            _changeSpeed(snake.length);
+
+            timer = window.setTimeout(_moveSnake, speed);
+
+
+        }
+        /**
+         * 状态同步
+         * @function _syncStatus
+         * @return (void)
+         * @private
+         */
+        var _syncStatus = function (n) {
+
+            var score = snake.length - 1;// * 50;
+
+            score = score < 10 ? '000' + score : (score < 100 ? '00' + score : (score < 1000 ? '0' + score : score));
+            scoreObj.innerHTML = score;
+            if (mapLi.length == 0 || n) {
+                bgBlink();
+                setTimeout(function () {
+                    window.clearTimeout(timer);
+                    J_playground.innerHTML = '';
+
+                    gameOverObj.innerHTML = n ? "YOU FAIL" : "COMPLETE";
+                    gameOverObj.style.display = 'block';
+
+                    scoreTextObj.innerHTML = score;
+                    scoreTextObj.style.display = 'block';
+
+                    setTimeout(function(){
+                        startObj.style.display = 'block';
+                    },500);
+                }, 1000);
+                return true;
+            }
+        }
+        /**
+         * 改变移动速度
+         * @function _changeSpeed
+         * @return (void)
+         * @private
+         */
+        var _changeSpeed = function (n) {
+            speed = _options.nDefaultSpeed - Math.floor(snake.length)+20;
+        };
+        /**
+         * 改变移动方向
+         * @function _changePreDirection
+         * @return (void)
+         * @private
+         */
+        var _changePreDirection = function (keycode) {
+            switch (keycode) {
+                case 37:
+                    //为什么 direction == [0,1]不成立
+                    preDirection = (direction[0] == 0 && direction[1] == 1 && snake.length != 1) ? [0, 1] : [0, -1];
+                    break;
+                case 38:
+                    preDirection = (direction[0] == 1 && direction[1] == 0 && snake.length != 1) ? [1, 0] : [-1, 0];
+                    break;
+                case 39:
+                    preDirection = (direction[0] == 0 && direction[1] == -1 && snake.length != 1) ? [0, -1] : [0, 1];
+                    break;
+                case 40:
+                    preDirection = (direction[0] == -1 && direction[1] == 0 && snake.length != 1) ? [-1, 0] : [1, 0];
+                    break;
+                default:
+                    break;
+            }
+        }
+        /**
+         * 游戏结束
+         * @function _gameOver
+         * @return (void)
+         * @private
+         */
+        var _gameOver = function () {
+            bgBlink();
+            _syncStatus(true);
+        };
+        /**
+         * 绑定按键事件
+         * @function _bindEvents
+         * @return (void)
+         * @private
+         */
+        var _bindEvents = function () {
+
+            if (bHasInit) return;
+
+            bHasInit = true;
+            document.onkeydown = function (e) {
+                var ev = window.event || e;
+                var keycode = ev.keyCode || ev.which || ev.charCode;
+                if (keycode == 32 && bHasBegin) {
+                    bPause = bPause ? false : true;
+                    if (!bPause) {
+                        timer = window.setTimeout(_moveSnake, speed);
+                    }
+                }
+                if (bPause) {
+                    window.clearTimeout(timer);
+                    //document.getElementById("J_gamestatus").innerHTML = "已暂停…";
+                    return;
+                } else {
+                    if (keycode == 37 || keycode == 38 || keycode == 39 || keycode == 40) {
+                        _changePreDirection(keycode);
+                        if (!bHasBegin) {
+                            _moveSnake();
+                        }
+                    }
+                }
+            }
+
+        }
+        return {
+            restart: function () {
+                //像素点集合数组
+                aLi = new Array();
+                //贪吃蛇
+                snake = new Array();
+                //地图可用空间
+                mapLi = new Array();
+                //移动方向、预载移动方向
+                direction = preDirection = [0, 1];
+                //移动速度
+                speed = _options.nDefaultSpeed;
+                //是否在移动、是否暂停、是否已经绑定过事件
+                bHasBegin = bPause = bHasInit = false;
+                //计时器
+                timer = null;
+
+                _createMap();
+                _bindEvents();
+                _createSnake();
+                _createFood();
+            }
+        }
+    }();
+
+
+    //    开始游戏
+    startObj.onclick = function () {
+        playObj.style.display = 'none';
+        startObj.style.display = 'none';
+        gameOverObj.style.display = 'none';
+        scoreTextObj.style.display = 'none';
+        tcs.restart();
+    };
+
+
+    function bgBlink() {
+        var i = 1;
+        var dt = setInterval(function () {
+            if (i == 8) {
+                clearInterval(dt);
+            }
+            var bgClass = container.getAttribute('class');
+            var onClass = bgClass == 'containerBg' ? 'containerBgBlink' : 'containerBg';
+            container.setAttribute('class', onClass);
+            i += 1;
+
+        }, 100);
+
+
+    }
+
+    // 获取类对象
+    function getClassObj(className) {
+        var parentObj = document.getElementById('container');
+        if (parentObj.querySelector) {
+            return parentObj.querySelector('.' + className);
+        } else {
+            var divs = parentObj.getElementsByTagName('div');
+            for (var i = 0, len = divs.length; i < len; i += 1) {
+                if (divs[i].getAttribute('class') == className) {
+                    return divs[i];
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

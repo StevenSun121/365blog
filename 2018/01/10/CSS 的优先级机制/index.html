@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>CSS 的优先级机制 | DouBi365</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="有时候在写CSS的过程中，某些限制总是不起作用，这就涉及了CSS样式覆盖的问题，某些本该生效的样式却没有生效， 样式的优先级外部样式、内部样式和内联样式同时应用于同一个元素时优先级如下：  （外部样式）External style sheet &amp;lt;（内部样式）Internal style sheet &amp;lt;（内联样式）Inline style  有个例外的情况，就是如果外部样式放在内部样式的">
+<meta name="keywords" content="多重样式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 的优先级机制">
+<meta property="og:url" content="http://www.doubi365.com/2018/01/10/CSS 的优先级机制/index.html">
+<meta property="og:site_name" content="DouBi365">
+<meta property="og:description" content="有时候在写CSS的过程中，某些限制总是不起作用，这就涉及了CSS样式覆盖的问题，某些本该生效的样式却没有生效， 样式的优先级外部样式、内部样式和内联样式同时应用于同一个元素时优先级如下：  （外部样式）External style sheet &amp;lt;（内部样式）Internal style sheet &amp;lt;（内联样式）Inline style  有个例外的情况，就是如果外部样式放在内部样式的">
+<meta property="og:updated_time" content="2018-05-26T10:35:49.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 的优先级机制">
+<meta name="twitter:description" content="有时候在写CSS的过程中，某些限制总是不起作用，这就涉及了CSS样式覆盖的问题，某些本该生效的样式却没有生效， 样式的优先级外部样式、内部样式和内联样式同时应用于同一个元素时优先级如下：  （外部样式）External style sheet &amp;lt;（内部样式）Internal style sheet &amp;lt;（内联样式）Inline style  有个例外的情况，就是如果外部样式放在内部样式的">
+    
+
+    
+        <link rel="alternate" href="/" title="DouBi365" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">DouBi365</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+                    <a class="main-nav-link" href="/tools">在线工具</a>
+                
+                    <a class="main-nav-link" href="/paypal">捐赠</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                    <td><a class="main-nav-link" href="/tools">在线工具</a></td>
+                
+                    <td><a class="main-nav-link" href="/paypal">捐赠</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Steven Sun</h2>
+            <h3 id="title">Web &amp; Java 程序员</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>长春, 吉林</span>
+            <a id="follow" target="_blank" href="https://github.com/StevenSun121">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                28
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                26
+                <span>标签</span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-CSS 的优先级机制" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            CSS 的优先级机制
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/10/CSS 的优先级机制/">
+            <time datetime="2018-01-09T16:00:00.000Z" itemprop="datePublished">2018-01-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/多重样式/">多重样式</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>有时候在写CSS的过程中，某些限制总是不起作用，这就涉及了CSS样式覆盖的问题，某些本该生效的样式却没有生效，</p>
+<h3 id="样式的优先级"><a href="#样式的优先级" class="headerlink" title="样式的优先级"></a>样式的优先级</h3><p>外部样式、内部样式和内联样式同时应用于同一个元素时优先级如下：</p>
+<blockquote>
+<p>（外部样式）External style sheet &lt;（内部样式）Internal style sheet &lt;（内联样式）Inline style</p>
+</blockquote>
+<p>有个例外的情况，就是如果<strong>外部样式</strong>放在<strong>内部样式</strong>的<strong>后面</strong>，则外部样式将覆盖内部样式。例:</p>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">      /* 内部样式 */</div><div class="line">      h3&#123;color:green;&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"> </div><div class="line">    <span class="comment">&lt;!-- 外部样式 style.css --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"style.css"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 设置：h3&#123;color:blue;&#125; --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>测试！<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="选择器的优先权"><a href="#选择器的优先权" class="headerlink" title="选择器的优先权"></a>选择器的优先权</h3><blockquote>
+<ul>
+<li>内联样式表的权值最高 1000；</li>
+<li>ID 选择器的权值为 100</li>
+<li>Class 类选择器的权值为 10</li>
+<li>HTML 标签选择器的权值为 1</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">        #redP p &#123;</div><div class="line">             /* 权值 = 100+1=101 */</div><div class="line">             color:#F00;  /* 红色 */</div><div class="line">        &#125;</div><div class="line"> </div><div class="line">        #redP .red em &#123;</div><div class="line">             /* 权值 = 100+10+1=111 */</div><div class="line">             color:#00F; /* 蓝色 */</div><div class="line"> </div><div class="line">        &#125;</div><div class="line"> </div><div class="line">        #redP p span em &#123;</div><div class="line">             /* 权值 = 100+1+1+1=103 */</div><div class="line">             color:#FF0;/*黄色*/</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"redP"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"red"</span>&gt;</span>red</div><div class="line">           <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span>em red<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>red<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的例子中 <code>&lt;em&gt;</code> 标签内的数据显示为蓝色。</p>
+<h3 id="CSS-优先级法则"><a href="#CSS-优先级法则" class="headerlink" title="CSS 优先级法则"></a>CSS 优先级法则</h3><blockquote>
+<ul>
+<li>选择器都有一个权值，权值越大越优先</li>
+<li>当权值相等时，后出现的样式表设置要优于先出现的样式表设置</li>
+<li>创作者的规则高于浏览者：即网页编写者设置的CSS 样式的优先权高于浏览器所设置的样式</li>
+<li>继承的CSS 样式不如后来指定的CSS 样式</li>
+<li>在同一组属性设置中标有“!important”规则的优先级最大</li>
+</ul>
+</blockquote>
+<p>示例如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">     #redP p&#123;</div><div class="line">        /*两个color属性在同一组*/</div><div class="line">        color:#00f !important; /* 优先级最大 */</div><div class="line">        color:#f00;</div><div class="line">     &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"redP"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>color<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>color<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的例子中，在<code>Firefox</code>下显示为蓝色；在<code>IE 6</code> 下显示为红色；</p>
+<h3 id="使用脚本添加样式"><a href="#使用脚本添加样式" class="headerlink" title="使用脚本添加样式"></a>使用脚本添加样式</h3><p>当在连接外部样式后，再在其后面使用JavaScript 脚本插入内部样式时（即内部样式使用脚本创建），IE 浏览器就表现出它的另类了。代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span> demo <span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"Author"</span> <span class="attr">content</span>=<span class="string">"xugang"</span> /&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 添加外部CSS 样式 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"styles.css"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 在外部的styles.css文件中，代码如下：</span></div><div class="line">       h3 &#123;color:blue;&#125;</div><div class="line">  --&gt;</div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 使用javascript 创建内部CSS 样式 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">  <span class="comment">&lt;!--</span></div><div class="line">    (function()&#123;</div><div class="line">        var agent = window.navigator.userAgent.toLowerCase();</div><div class="line">        var is_op = (agent.indexOf("opera") != -1);</div><div class="line">        var is_ie = (agent.indexOf("msie") != -1) &amp;&amp; document.all &amp;&amp; !is_op;</div><div class="line">        var is_ch = (agent.indexOf("chrome") != -1);</div><div class="line">     </div><div class="line">        var cssStr="h3 &#123;color:green;&#125;";</div><div class="line">        var s=document.createElement("style");</div><div class="line">        var head=document.getElementsByTagName("head").item(0);</div><div class="line">        var link=document.getElementsByTagName("link");</div><div class="line">        link=link.item(0);</div><div class="line">     </div><div class="line">        if(is_ie)</div><div class="line">        &#123;</div><div class="line">            if(link)</div><div class="line">                head.insertBefore(s,link);</div><div class="line">            else</div><div class="line">                head.appendChild(s);</div><div class="line">            document.styleSheets.item(document.styleSheets.length-1).cssText=cssStr;</div><div class="line">        &#125;</div><div class="line">        else if(is_ch)</div><div class="line">        &#123;</div><div class="line">            var t=document.createTextNode();</div><div class="line">            t.nodeValue=cssStr;</div><div class="line">            s.appendChild(t);</div><div class="line">            head.insertBefore(s,link);</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            s.innerHTML=cssStr;</div><div class="line">            head.insertBefore(s,link);</div><div class="line">        &#125;</div><div class="line">    &#125;)();</div><div class="line">  //--&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span>在IE中我是绿色，非IE浏览器下我是蓝色！<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的例子中，在<code>Firefox</code>/ <code>Chrome</code> / <code>Safari</code> / <code>Opera</code> 中，文字都是蓝色的。而在<code>IE</code> 浏览器中，文字却是绿色的。</p>
+<h3 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h3><p>在IE 中添加样式内容的JavaScript 代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s=<span class="built_in">document</span>.createElement(<span class="string">"style"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> head=<span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>).item(<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> link=<span class="built_in">document</span>.getElementsByTagName(<span class="string">"link"</span>).item(<span class="number">0</span>);</div><div class="line"></div><div class="line">head.insertBefore(s,link);</div><div class="line"></div><div class="line"><span class="comment">/* 注意：在IE 中，</span></div><div class="line"></div><div class="line">   虽然代码是将&lt;style&gt;插入在&lt;link&gt;之前，</div><div class="line"></div><div class="line">   但实际内存中，&lt;style&gt;却在&lt;link&gt;之后。</div><div class="line"></div><div class="line">   这也是“IE中奇怪的应用CSS的BUG”之所在！</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="keyword">var</span> oStyleSheet = <span class="built_in">document</span>.styleSheets[<span class="number">0</span>];</div><div class="line"></div><div class="line"><span class="comment">//这实际是在&lt;link&gt;的外部样式中追加</span></div><div class="line"></div><div class="line">oStyleSheet.addRule(<span class="string">"h3"</span>,<span class="string">"color:green;"</span>);</div><div class="line"></div><div class="line">alert(oStyleSheet.rules[<span class="number">0</span>].style.cssText);</div><div class="line"></div><div class="line">alert(<span class="built_in">document</span>.styleSheets[<span class="number">0</span>].rules[<span class="number">0</span>].style.cssText);</div><div class="line"></div><div class="line"><span class="comment">//方式2</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> cssStr=<span class="string">"h3 &#123;color:green;&#125;"</span>;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.styleSheets.item(<span class="built_in">document</span>.styleSheets.length<span class="number">-1</span>).cssText=cssStr;</div></pre></td></tr></table></figure>
+<p>IE 浏览器下载或者渲染的顺序可能如下：</p>
+<blockquote>
+<ul>
+<li>IE 下载的顺序是从上到下</li>
+<li>JavaScript 函数的执行会阻塞IE 的下载</li>
+<li>IE 渲染的顺序也是从上到下</li>
+<li>IE 的下载和渲染是同时进行的</li>
+<li>在渲染到页面的某一部分时，其上面的所有部分都已经下载完成（但并不是说所有相关联的元素都已经下载完。）</li>
+<li>在下载过程中，如果遇到某一标签是嵌入文件，并且文件是具有语义解释性的（例如：JS脚本，CSS样式），那么此时IE的下载过程会启用单独连接进行下载。并且在下载后进行解析，如果JS、CSS中如有重定义，后面定义的函数将覆盖前面定义的函数。</li>
+<li>解析过程中，停止页面所有往下元素的下载。样式表文件比较特殊，在其下载完成后，将和以前下载的所有样式表一起进行解析，解析完成后，将对此前所有元素（含以前已经渲染的）重新进行样式渲染。并以此方式一直渲染下去，直到整个页面渲染完成。</li>
+<li>Firefox 处理下载和渲染的顺序大体相同，只是在细微之处有些差别，例如：iframe 的渲染。</li>
+</ul>
+</blockquote>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.doubi365.com/2018/01/10/CSS 的优先级机制/" data-id="cjhnbdp8v0003foo2unomeotv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/01/01/spring boot 配置文件隐藏明文密码/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    spring boot 配置文件隐藏明文密码
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/01/15/Listary破解教程/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Listary破解教程</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/14/win10不为人知的快捷键/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/优化/">优化</a></p>
+                            <p class="item-title"><a href="/2018/03/14/win10不为人知的快捷键/" class="title">win10不为人知的快捷键</a></p>
+                            <p class="item-date"><time datetime="2018-03-13T16:00:00.000Z" itemprop="datePublished">2018-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/13/win10修改磁铁背景和图标/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/美化/">美化</a></p>
+                            <p class="item-title"><a href="/2018/03/13/win10修改磁铁背景和图标/" class="title">win10修改磁铁背景和图标</a></p>
+                            <p class="item-date"><time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/19/jenkins自动部署Blog/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/其他/">其他</a></p>
+                            <p class="item-title"><a href="/2018/01/19/jenkins自动部署Blog/" class="title">jenkins自动部署Blog</a></p>
+                            <p class="item-date"><time datetime="2018-01-18T16:00:00.000Z" itemprop="datePublished">2018-01-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/17/linux下安装nodejs/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/node/">node</a></p>
+                            <p class="item-title"><a href="/2018/01/17/linux下安装nodejs/" class="title">linux下安装nodejs</a></p>
+                            <p class="item-date"><time datetime="2018-01-16T16:00:00.000Z" itemprop="datePublished">2018-01-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/15/Listary破解教程/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/破解/">破解</a></p>
+                            <p class="item-title"><a href="/2018/01/15/Listary破解教程/" class="title">Listary破解教程</a></p>
+                            <p class="item-date"><time datetime="2018-01-14T16:00:00.000Z" itemprop="datePublished">2018-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/优化/">优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/破解/">破解</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/美化/">美化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高并发/">高并发</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AHK/" style="font-size: 10px;">AHK</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/VMWARE/" style="font-size: 10px;">VMWARE</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/windows/" style="font-size: 13.33px;">windows</a> <a href="/tags/多重样式/" style="font-size: 10px;">多重样式</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据缓存/" style="font-size: 10px;">数据缓存</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/特性/" style="font-size: 10px;">特性</a> <a href="/tags/破解/" style="font-size: 10px;">破解</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/美化/" style="font-size: 10px;">美化</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/跳转/" style="font-size: 10px;">跳转</a> <a href="/tags/错误/" style="font-size: 10px;">错误</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Steven Sun<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

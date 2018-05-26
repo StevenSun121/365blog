@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>代码格式化</title>
+    <link rel="stylesheet" href="css/school_book.css">
+    <script type="text/javascript" src="/common/js/jquery-2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vkbeautify.js"></script>
+    <script type="text/javascript" src="js/highlight.min.js"></script>
+    <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
+</head>
+<body>
+    <H5 class="explainer">贴入要格式化或压缩的XML代码:</H5>
+    <TEXTAREA id="xml_input" placeholder="贴入要格式化或者压缩的XML 代码输入" value=""></TEXTAREA>
+
+    <DIV class="row">
+        <BUTTON class="button primary small" onclick="javascript:on_click(1);">XML格式化</BUTTON>
+        <BUTTON class="button primary small" onclick="javascript:on_click(2);">XML压缩</BUTTON>
+        <BUTTON class="button success small" id="copy_btn">点击我复制内容</BUTTON>
+    </DIV>
+    <DIV class="row">
+        <PRE><CODE class="xml hljs " id="xml_output">格式化或压缩之后的XML显示区域</CODE></PRE>
+    </DIV>
+    <SCRIPT type="text/javascript">
+        function on_click(opera) {
+            $("#xml_output").text('');
+            if (opera == 1) {
+                $("#xml_output").text(vkbeautify.xml($("#xml_input").val()));
+            }
+            else {
+                $("#xml_output").text(vkbeautify.xmlmin($("#xml_input").val()));
+            }
+            $('#xml_output').each(function(i, e) {hljs.highlightBlock(e)});
+        }
+        function to_json() {
+
+        }
+        $('#copy_btn').zclip({
+            path:'js/ZeroClipboard.swf',
+            copy:function(){return $('#xml_output').text();}
+        });
+    </SCRIPT>
+
+</body>
+</html>
