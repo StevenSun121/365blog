@@ -3,14 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: blog | DouBi365</title>
+    <title>IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示 | DouBi365</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="DouBi365">
-<meta property="og:url" content="http://blog.doubi365.com/tags/blog/index.html">
+    <meta name="description" content="idea中通过@Autowired注入的对象一直有下划线提示，虽然不影响运行，但是强迫症的程序员肯定看不下去. 如何去除呢？">
+<meta name="keywords" content="IDEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示">
+<meta property="og:url" content="http://blog.doubi365.com/2018/03/24/IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示/index.html">
 <meta property="og:site_name" content="DouBi365">
+<meta property="og:description" content="idea中通过@Autowired注入的对象一直有下划线提示，虽然不影响运行，但是强迫症的程序员肯定看不下去. 如何去除呢？">
+<meta property="og:image" content="http://blog.doubi365.com/image/idea.jpg">
+<meta property="og:updated_time" content="2018-06-23T09:03:05.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DouBi365">
+<meta name="twitter:title" content="IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示">
+<meta name="twitter:description" content="idea中通过@Autowired注入的对象一直有下划线提示，虽然不影响运行，但是强迫症的程序员肯定看不下去. 如何去除呢？">
+<meta name="twitter:image" content="http://blog.doubi365.com/image/idea.jpg">
     
 
     
@@ -174,50 +181,164 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#blog</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/01/19/jenkins自动部署Blog/">jenkins自动部署Blog</a>
+        <h1 class="article-title" itemprop="name">
+            IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/19/jenkins自动部署Blog/">
-            <time datetime="2018-01-18T16:00:00.000Z" itemprop="datePublished">2018-01-19</time>
+        <a href="/2018/03/24/IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示/">
+            <time datetime="2018-03-23T16:00:00.000Z" itemprop="datePublished">2018-03-24</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/其他/">其他</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/blog/">blog</a>, <a class="tag-link" href="/tags/jenkins/">jenkins</a>
+        <a class="tag-link" href="/tags/IDEA/">IDEA</a>
     </div>
 
-                </div>
-            </div>
-        </div>
+                    </div>
+                
+            </header>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="/image/idea.jpg" rel="gallery_cjir5k5jb0000hco2cpi1hcy8">
+        <img src="/image/idea.jpg" itemprop="image" />
+    </a>
     
 </div>
+
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>idea中通过@Autowired注入的对象一直有下划线提示，虽然不影响运行，但是强迫症的程序员肯定看不下去. 如何去除呢？</p>
+<a id="more"></a>
+<p>解决：改变@Autowired的检查级别即可.</p>
+<p><img src="/image/20180324001.jpg" alt=""></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.doubi365.com/2018/03/24/IntelliJ IDEA中去除@Autowired注入对象带来的下划线提示/" data-id="cjir5k5jb0000hco2cpi1hcy8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/03/14/win10不为人知的快捷键/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    win10不为人知的快捷键
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+    
+</article>
+
+
+    
 </section>
             
                 <aside id="sidebar">

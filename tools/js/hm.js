@@ -20,6 +20,14 @@ var linkData = [
 						{name: "拼图",link: "/tools/games/puzzle.html"},
 						{name: "俄罗斯方块",link: "/tools/games/tetris.html"}
                     ]
+                },
+                {
+                    name: "工具链接",
+                    include: [
+                        {name: "双拼练习",link: "https://api.ihint.me/shuang/"},
+                        {name: "水水的证件",link: "http://www.simpletool.cn/"},
+                        {name: "hackChat",link: "https://hack.chat/?doubi365"}
+                    ]
                 }
             ];
 $(document).ready(function(){
